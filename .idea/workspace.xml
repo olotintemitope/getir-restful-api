@@ -48,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603360251717</updated>
-      <workItem from="1603360253837" duration="17180000" />
+      <workItem from="1603360253837" duration="18771000" />
     </task>
     <servers />
   </component>
@@ -60,5 +60,21 @@
       <screen x="1680" y="0" width="1920" height="1080" />
     </state>
     <state x="2377" y="293" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050/1680.0.1920.1080@1680.0.1920.1080" timestamp="1603440281368" />
+    <state width="1657" height="294" key="GridCell.Tab.0.bottom" timestamp="1603467529462">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1657" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603467529462" />
+    <state width="1657" height="294" key="GridCell.Tab.0.center" timestamp="1603467529460">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1657" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603467529460" />
+    <state width="1657" height="294" key="GridCell.Tab.0.left" timestamp="1603467529459">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1657" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603467529459" />
+    <state width="1657" height="294" key="GridCell.Tab.0.right" timestamp="1603467529461">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1657" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603467529461" />
   </component>
 </project>
