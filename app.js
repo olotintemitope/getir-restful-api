@@ -1,11 +1,15 @@
 const express = require('express');
 const logger = require('morgan');
 
-const dbConfig = require('./config/database.config');
+require('dotenv').config();
+const port = process.env.PORT || 3070;
+
+console.log(process.env.MONGODB_URL)
+
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 // Connecting to the database
-mongoose.connect(dbConfig.url, {
+mongoose.connect(`${process.env.MONGODB_URL}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -25,8 +29,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 
 // listen for requests
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
 
 module.exports = app;
