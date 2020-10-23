@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const getr = require('../controllers/getr.controller.js');
+
 /**
  * This route is for testing the  default route
  */
-router.get('/', function(req, res, next) {
-  res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
-});
+router.get('/getr', getr.getFilterItems);
 
 module.exports = router;

@@ -1,6 +1,19 @@
 const express = require('express');
 const logger = require('morgan');
-const dbConnect = require('./config/database.connect');
+
+const dbConfig = require('./config/database.config');
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+// Connecting to the database
+mongoose.connect(dbConfig.url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("Successfully connected to the database");
+}).catch(err => {
+  console.log('Could not connect to the database. Exiting now...', err);
+  process.exit();
+});
 
 const indexRouter = require('./routes/index');
 
@@ -8,9 +21,6 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// Connect to the mongoose db
-dbConnect();
 
 app.use('/', indexRouter);
 

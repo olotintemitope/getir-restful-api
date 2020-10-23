@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const GetrSchema = mongoose.Schema({
-  startDate: String,
-  endDate: String,
-  minCount: Number,
-  maxCount: Number,
+  value: String,
+  key: String,
+  createdAt: Date,
+  counts: Array,
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Getr', GetrSchema);
+module.exports = mongoose.model('records', GetrSchema);
