@@ -1,16 +1,16 @@
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const dbConnect = require('./config/database.connect');
 
 const indexRouter = require('./routes/index');
 
 const app = express();
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+// Connect to the mongoose db
+dbConnect();
 
 app.use('/', indexRouter);
 
