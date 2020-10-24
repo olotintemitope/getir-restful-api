@@ -1,7 +1,12 @@
 const request = require('supertest')
 const mongoose = require('mongoose');
+const mockingoose = require('mockingoose').default;
 
+const moment = require("moment");
+
+const RecordModel = require('../models/getir')
 const BASE_URL = 'http://localhost:3000';
+const dataFixtures = require('../__tests__/fixtures/stub')
 
 beforeAll(done => {
   done()
@@ -76,4 +81,51 @@ describe('Get records endpoint', () => {
     expect(res.body).toHaveProperty('msg')
     expect(res.body.msg).toEqual("minCount should be less than maxCount");
   });
+
+  it('mocks the mongo db records', async () => {
+    let response = { code: 1, msg: "", records: [] };
+
+    const startDate = '2015-06-03';
+    const endDate = '2017-01-28';
+    const minCount = 100;
+    const maxCount = 500;
+
+    mockingoose(RecordModel).toReturn(dataFixtures, 'aggregate');
+
+    return RecordModel.aggregate([
+      {
+        $match: {
+          createdAt: {
+            $gte: moment(startDate).startOf("day").toDate(),
+            $lte: moment(endDate).endOf("day").toDate(),
+          },
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          key: "$key",
+          createdAt: "$createdAt",
+          totalCount: {
+            $sum: "$counts",
+          },
+        },
+      },
+      {
+        $match: {
+          totalCount: {
+            $gt: Number(minCount),
+            $lt: Number(maxCount),
+          },
+        },
+      },
+    ])
+      .exec((err, collection) => {
+        if (err) {
+          response.msg = err;
+        }
+
+        expect(collection).toMatchObject(dataFixtures);
+      });
+  })
 })
