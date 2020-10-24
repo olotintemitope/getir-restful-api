@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const getir = require('../controllers/getr.controller.js');
+const getir = require('../controllers/getir.controller.js');
 
 /**
  * This route is for testing the  default route

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const GetrSchema = mongoose.Schema({
+const getirSchema = mongoose.Schema({
   value: String,
   key: String,
   createdAt: Date,
@@ -9,4 +9,4 @@ const GetrSchema = mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('records', GetrSchema);
+module.exports = mongoose.model('records', getirSchema);

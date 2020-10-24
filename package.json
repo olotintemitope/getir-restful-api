@@ -10,9 +10,13 @@
     "eslint": "eslint ./",
     "eslint-fix": "eslint ./ --fix",
     "build": "ENVIRONMENT=$ENVIRONMENT webpack",
-    "prod": "node dist/api.bundle.js"
+    "prod": "node dist/api.bundle.js",
+    "test": "jest"
   },
   "dependencies": {
+    "@jest/globals": "^26.6.1",
+    "@shelf/jest-mongodb": "^1.2.3",
+    "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -24,10 +28,21 @@
   },
   "devDependencies": {
     "eslint": "^7.11.0",
+    "jest": "^26.6.1",
+    "mongodb-memory-server": "^6.9.2",
     "nodemon": "^2.0.6",
+    "supertest": "^5.0.0",
     "webpack": "^5.2.0",
     "webpack-cli": "^4.1.0"
   },
   "author": "Temitope Olotin",
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "tests"
+    ]
+  }
 }

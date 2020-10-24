@@ -43,7 +43,7 @@ exports.getFilterItems = async (req, res) => {
     return res.status(400).send(response);
   }
 
-  const records = require("../models/getr");
+  const records = require("../models/getir");
 
   records
     .aggregate([
