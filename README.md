@@ -24,12 +24,37 @@ https://getir-restful.herokuapp.com/
   - GET `api/records`
 - Since this is a GET request, the filter parameters are appended to the endpoint like;
   - `?startDate=2016-05-10&endDate=2016-09-17&minCount=150&maxCount=500`
+ 
+### Sample Request using local server
+- `http://localhost:3000/api/records?startDate=2016-05-10&endDate=2016-09-17&minCount=300&maxCount=500`
 
-### Sample Request
+### Sample Response
+```
+{
+    "code": 0,
+    "msg": "success",
+    "records": [
+        {
+        "key": "GbAmjUNH",
+        "createdAt": "2016-09-12T18:40:33.614Z",
+        "totalCount": 406
+        },
+        {
+        "key": "dBEekhmy",
+        "createdAt": "2016-07-14T09:27:48.414Z",
+        "totalCount": 417
+        }
+    ]
+}
+```
+
+
+### Sample Request using the Heroku endpoint
 - `https://getir-restful.herokuapp.com/api/records?startDate=2016-05-10&endDate=2016-09-17&minCount=150&maxCount=500`
 
 ### Sample Response
-```{
+```
+{
   "code": 0,
   "msg": "success",
   "records": [
@@ -185,3 +210,4 @@ https://getir-restful.herokuapp.com/
       }
     ]
   }
+```
